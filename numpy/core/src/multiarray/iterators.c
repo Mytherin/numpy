@@ -1350,6 +1350,11 @@ NPY_NO_EXPORT PyTypeObject PyArrayIter_Type = {
 
 /** END of Array Iterator **/
 
+/*****************************
+ * Deferred array object
+ *****************************/
+#include "deferredarray.c"
+
 /* Adjust dimensionality and strides for index object iterators
    --- i.e. broadcast
 */
