@@ -703,7 +703,6 @@ def configuration(parent_package='',top_path=None):
     config.add_library('npysort',
                        sources=npysort_sources,
                        include_dirs=[])
-
     #######################################################################
     #                        multiarray module                            #
     #######################################################################

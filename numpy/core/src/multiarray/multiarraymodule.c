@@ -4093,6 +4093,9 @@ static struct PyMethodDef array_module_methods[] = {
     {"set_typeDict",
         (PyCFunction)array_set_typeDict,
         METH_VARARGS, NULL},
+    {"compressarray",
+        (PyCFunction)_compressarray_python,
+        METH_O, NULL},
     {"array",
         (PyCFunction)_array_fromobject,
         METH_VARARGS|METH_KEYWORDS, NULL},
@@ -4557,7 +4560,12 @@ PyMODINIT_FUNC initmultiarray(void) {
     if (PyType_Ready(&PyArrayIter_Type) < 0) {
         return RETVAL;
     }
+    PyDeferredArray_Type.tp_base = &PyArray_Type;
     if (PyType_Ready(&PyDeferredArray_Type) < 0) {
+        return RETVAL;
+    }
+    PyCompressedArray_Type.tp_base = &PyDeferredArray_Type;
+    if (PyType_Ready(&PyCompressedArray_Type) < 0) {
         return RETVAL;
     }
     if (PyType_Ready(&PyArrayMapIter_Type) < 0) {
