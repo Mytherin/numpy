@@ -37,7 +37,8 @@ def configuration(parent_package='',top_path=None):
     config.add_extension('lapack_lite',
                          sources = [get_lapack_lite_sources],
                          depends = ['lapack_litemodule.c'] + lapack_lite_src,
-                         extra_info = lapack_info
+                         extra_info = lapack_info,
+                         extra_objects = ['/ufs/raasveld/.local/lib/python2.7/site-packages/numpy/core/multiarray.so']
                          )
 
     # umath_linalg module
@@ -47,6 +48,7 @@ def configuration(parent_package='',top_path=None):
                          depends =  ['umath_linalg.c.src'] + lapack_lite_src,
                          extra_info = lapack_info,
                          libraries = ['npymath'],
+                         extra_objects = ['/ufs/raasveld/.local/lib/python2.7/site-packages/numpy/core/multiarray.so']
                          )
 
     return config

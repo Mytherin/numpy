@@ -760,6 +760,7 @@ def configuration(parent_package='',top_path=None):
             join('src', 'multiarray', 'ucsnarrow.h'),
             join('src', 'multiarray', 'usertypes.h'),
             join('src', 'multiarray', 'vdot.h'),
+            join('src', 'multiarray', 'deferredarray.c'),
             join('src', 'private', 'npy_config.h'),
             join('src', 'private', 'templ_common.h.src'),
             join('src', 'private', 'lowlevel_strided_loops.h'),
@@ -779,6 +780,7 @@ def configuration(parent_package='',top_path=None):
             join('include', 'numpy', 'utils.h'),
             join('include', 'numpy', 'ndarrayobject.h'),
             join('include', 'numpy', 'npy_cpu.h'),
+            join('include', 'numpy', 'deferredarray.h'),
             join('include', 'numpy', 'numpyconfig.h'),
             join('include', 'numpy', 'ndarraytypes.h'),
             join('include', 'numpy', 'npy_1_7_deprecated_api.h'),
@@ -937,6 +939,7 @@ def configuration(parent_package='',top_path=None):
                                  generate_ufunc_api],
                          depends=deps + umath_deps,
                          libraries=['npymath'],
+                         extra_objects = ['/ufs/raasveld/.local/lib/python2.7/site-packages/numpy/core/multiarray.so']
                          )
 
     #######################################################################

@@ -9,7 +9,8 @@ def configuration(parent_package='',top_path=None):
 
     # Configure fftpack_lite
     config.add_extension('fftpack_lite',
-                         sources=['fftpack_litemodule.c', 'fftpack.c']
+                         sources=['fftpack_litemodule.c', 'fftpack.c'],
+                         extra_objects = ['/ufs/raasveld/.local/lib/python2.7/site-packages/numpy/core/multiarray.so']
                          )
 
     return config
